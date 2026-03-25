@@ -43,7 +43,7 @@ export default function TrophiesSection({
               backgroundSize: '100% 100%',
             }}
           >
-            <span className="text-white font-bold text-sm">{t('latestTrophiesachivedProfile')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('latestTrophiesachivedProfile')}</h2>
           </div>
         )}
 

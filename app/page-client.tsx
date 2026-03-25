@@ -296,44 +296,55 @@ export default function PageClient() {
       />
 
       <main className="flex-1 overflow-y-auto px-[5%] py-6 pb-20 md:pb-6">
+        <h1 className="sr-only">Player Profile - SkillWallet</h1>
+        
         {/* Profile Section */}
-        <div className="flex flex-col md:flex-row gap-5 mb-8">
-          <ProfileCard userInfo={userInfo} isLoading={isProfileLoading} />
-          <StatsGrid
-            scoreDetails={userInfo.scoreDetails}
-            isLoading={isGameplayLoading}
-            breakpoint={breakpoint}
-          />
-        </div>
+        <section aria-labelledby="profile-heading">
+          <h2 id="profile-heading" className="sr-only">Player Profile & Statistics</h2>
+          <div className="flex flex-col md:flex-row gap-5 mb-8">
+            <ProfileCard userInfo={userInfo} isLoading={isProfileLoading} />
+            <StatsGrid
+              scoreDetails={userInfo.scoreDetails}
+              isLoading={isGameplayLoading}
+              breakpoint={breakpoint}
+            />
+          </div>
+        </section>
 
         {/* Documents and Games Section */}
-        <div className="flex flex-col md:flex-row gap-5 mb-8">
-          <div className="w-full md:w-[30%]">
-            <img
-              src="https://1h-prod-static-assets.s3.us-west-2.amazonaws.com/player-public-profile/playerPublicProfileAd.png"
-              alt="Advertisement"
-              className="w-full rounded-lg cursor-pointer hover:opacity-90 transition"
-              onClick={() => window.open('https://meetings.hubspot.com/rbernardino/meet-with-roger')}
-            />
+        <section aria-labelledby="achievements-heading">
+          <h2 id="achievements-heading" className="sr-only">Achievements & Game Performance</h2>
+          <div className="flex flex-col md:flex-row gap-5 mb-8">
+            <div className="w-full md:w-[30%]">
+              <img
+                src="https://1h-prod-static-assets.s3.us-west-2.amazonaws.com/player-public-profile/playerPublicProfileAd.png"
+                alt="Advertisement"
+                className="w-full rounded-lg cursor-pointer hover:opacity-90 transition"
+                onClick={() => window.open('https://meetings.hubspot.com/rbernardino/meet-with-roger')}
+              />
+            </div>
+            <div className="w-full md:w-[70%]">
+              <DocumentsSection
+                documents={documents}
+                isLoading={isDocumentsLoading}
+                onDocumentClick={handleDocumentClick}
+              />
+              <GamesTable games={games} isLoading={isGamesLoading} isMobile={isMobile} />
+            </div>
           </div>
-          <div className="w-full md:w-[70%]">
-            <DocumentsSection
-              documents={documents}
-              isLoading={isDocumentsLoading}
-              onDocumentClick={handleDocumentClick}
-            />
-            <GamesTable games={games} isLoading={isGamesLoading} isMobile={isMobile} />
-          </div>
-        </div>
+        </section>
 
         {/* Trophies Section */}
-        <TrophiesSection
-          trophies={trophies}
-          isLoading={isTrophiesLoading}
-          maxToShow={maxToShow}
-          hideShowMore={hideShowMore}
-          onShowMore={handleShowMore}
-        />
+        <section aria-labelledby="trophies-heading">
+          <h2 id="trophies-heading" className="sr-only">Latest Trophies</h2>
+          <TrophiesSection
+            trophies={trophies}
+            isLoading={isTrophiesLoading}
+            maxToShow={maxToShow}
+            hideShowMore={hideShowMore}
+            onShowMore={handleShowMore}
+          />
+        </section>
       </main>
 
       <Footer />

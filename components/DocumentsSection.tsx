@@ -43,9 +43,9 @@ export default function DocumentsSection({ documents, isLoading, onDocumentClick
               backgroundSize: '100% 100%',
             }}
           >
-            <span className="text-white font-bold text-sm">{t('achivements')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('achivements')}</h2>
             <div className="w-px h-5 bg-white/50 mx-5" />
-            <span className="text-white font-bold text-sm">{t('certificateAwards')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('certificateAwards')}</h2>
           </div>
         )}
 

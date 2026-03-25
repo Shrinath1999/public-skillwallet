@@ -45,9 +45,9 @@ export default function GamesTable({ games, isLoading, isMobile }: GamesTablePro
               backgroundSize: '100% 100%',
             }}
           >
-            <span className="text-white font-bold text-sm">{t('performanceProfile')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('performanceProfile')}</h2>
             <div className="w-px h-5 bg-white/50 mx-5" />
-            <span className="text-white font-bold text-sm">{t('topGamesProfile')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('topGamesProfile')}</h2>
           </div>
         )}
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import Head from 'next/head';
 import Header from '@/components/Header';
 import ProfileCard from '@/components/ProfileCard';
 import StatsGrid from '@/components/StatsGrid';
@@ -10,6 +11,7 @@ import DocumentsSection from '@/components/DocumentsSection';
 import GamesTable from '@/components/GamesTable';
 import TrophiesSection from '@/components/TrophiesSection';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 import playerProfileService from '@/lib/services/playerProfileService';
 import { getTime } from '@/lib/utils/timeFormatter';
 import '../lib/i18n/config';
@@ -284,59 +286,62 @@ export default function Page() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-cover bg-center flex flex-col"
-      style={{
-        backgroundImage: "url('/assets/img/playerPublicProfile/playerPublicProfileBg.png')",
-        backgroundSize: '100% 100%',
-      }}>
-      <Header
-        isMobile={isMobile}
-        onHelpClick={setShowHelpPopup}
-        showHelpPopup={showHelpPopup}
-      />
-
-      <main className="flex-1 overflow-y-auto px-[5%] py-6 pb-20 md:pb-6">
-        {/* Profile Section */}
-        <div className="flex flex-col md:flex-row gap-5 mb-8">
-          <ProfileCard userInfo={userInfo} isLoading={isProfileLoading} />
-          <StatsGrid
-            scoreDetails={userInfo.scoreDetails}
-            isLoading={isGameplayLoading}
-            breakpoint={breakpoint}
-          />
-        </div>
-
-        {/* Documents and Games Section */}
-        <div className="flex flex-col md:flex-row gap-5 mb-8">
-          <div className="w-full md:w-[30%]">
-            <img
-              src="https://1h-prod-static-assets.s3.us-west-2.amazonaws.com/player-public-profile/playerPublicProfileAd.png"
-              alt="Advertisement"
-              className="w-full rounded-lg cursor-pointer hover:opacity-90 transition"
-              onClick={() => window.open('https://meetings.hubspot.com/rbernardino/meet-with-roger')}
-            />
-          </div>
-          <div className="w-full md:w-[70%]">
-            <DocumentsSection
-              documents={documents}
-              isLoading={isDocumentsLoading}
-              onDocumentClick={handleDocumentClick}
-            />
-            <GamesTable games={games} isLoading={isGamesLoading} isMobile={isMobile} />
-          </div>
-        </div>
-
-        {/* Trophies Section */}
-        <TrophiesSection
-          trophies={trophies}
-          isLoading={isTrophiesLoading}
-          maxToShow={maxToShow}
-          hideShowMore={hideShowMore}
-          onShowMore={handleShowMore}
+    <>
+      <SEOHead userInfo={userInfo} uuid={uuid} />
+      <div className="w-full min-h-screen bg-cover bg-center flex flex-col"
+        style={{
+          backgroundImage: "url('/assets/img/playerPublicProfile/playerPublicProfileBg.png')",
+          backgroundSize: '100% 100%',
+        }}>
+        <Header
+          isMobile={isMobile}
+          onHelpClick={setShowHelpPopup}
+          showHelpPopup={showHelpPopup}
         />
-      </main>
 
-      <Footer />
-    </div>
+        <main className="flex-1 overflow-y-auto px-[5%] py-6 pb-20 md:pb-6">
+          {/* Profile Section */}
+          <div className="flex flex-col md:flex-row gap-5 mb-8">
+            <ProfileCard userInfo={userInfo} isLoading={isProfileLoading} />
+            <StatsGrid
+              scoreDetails={userInfo.scoreDetails}
+              isLoading={isGameplayLoading}
+              breakpoint={breakpoint}
+            />
+          </div>
+
+          {/* Documents and Games Section */}
+          <div className="flex flex-col md:flex-row gap-5 mb-8">
+            <div className="w-full md:w-[30%]">
+              <img
+                src="https://1h-prod-static-assets.s3.us-west-2.amazonaws.com/player-public-profile/playerPublicProfileAd.png"
+                alt="Advertisement"
+                className="w-full rounded-lg cursor-pointer hover:opacity-90 transition"
+                onClick={() => window.open('https://meetings.hubspot.com/rbernardino/meet-with-roger')}
+              />
+            </div>
+            <div className="w-full md:w-[70%]">
+              <DocumentsSection
+                documents={documents}
+                isLoading={isDocumentsLoading}
+                onDocumentClick={handleDocumentClick}
+              />
+              <GamesTable games={games} isLoading={isGamesLoading} isMobile={isMobile} />
+            </div>
+          </div>
+
+          {/* Trophies Section */}
+          <TrophiesSection
+            trophies={trophies}
+            isLoading={isTrophiesLoading}
+            maxToShow={maxToShow}
+            hideShowMore={hideShowMore}
+            onShowMore={handleShowMore}
+          />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }

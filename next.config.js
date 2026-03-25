@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // Remove output: 'export' to enable ISR and API routes
   basePath: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
   images: {

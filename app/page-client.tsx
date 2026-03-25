@@ -286,7 +286,7 @@ export default function PageClient() {
   return (
     <div className="w-full min-h-screen bg-cover bg-center flex flex-col"
       style={{
-        backgroundImage: "url('/assets/img/playerPublicProfile/playerPublicProfileBg.png')",
+        backgroundImage: "url('assets/img/playerPublicProfile/playerPublicProfileBg.png')",
         backgroundSize: '100% 100%',
       }}>
       <Header

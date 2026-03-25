@@ -41,9 +41,9 @@ export default function StatsGrid({ scoreDetails, isLoading, breakpoint }: Stats
             ) : (
               <>
                 <img
-                  src={`/assets/img/playerPublicProfile/${score.imgName}.png`}
+                  src={`assets/img/playerPublicProfile/${score.imgName}.png`}
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/assets/img/default_iv_place_holder.png';
+                    (e.target as HTMLImageElement).src = 'assets/img/default_iv_place_holder.png';
                   }}
                   alt={score.title}
                   className={`${score.imgName === 'weekly' ? 'w-5 h-5' : 'w-[30px] h-[30px]'} mb-3`}

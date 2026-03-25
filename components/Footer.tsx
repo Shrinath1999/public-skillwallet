@@ -21,7 +21,7 @@ export default function Footer() {
         {t('termsofServiceTitle')}
       </button>
       <div className="flex-1 flex justify-end">
-        <img src="/assets/img/1huddle_logo.png" alt="1Huddle" className="h-6 w-auto" />
+        <img src="assets/img/1huddle_logo.png" alt="1Huddle" className="h-6 w-auto" />
       </div>
     </footer>
   );

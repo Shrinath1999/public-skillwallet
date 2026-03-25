@@ -39,7 +39,7 @@ export default function DocumentsSection({ documents, isLoading, onDocumentClick
           <div
             className="px-5 py-3 flex items-center h-[50px] bg-cover bg-center border-b"
             style={{
-              backgroundImage: "url('/assets/img/playerPublicProfile/tableHeader.png')",
+              backgroundImage: "url('assets/img/playerPublicProfile/tableHeader.png')",
               backgroundSize: '100% 100%',
             }}
           >

@@ -28,7 +28,7 @@ export default function ProfileCard({ userInfo, isLoading }: ProfileCardProps) {
           <div
             className="w-full h-[85px] bg-cover bg-center"
             style={{
-              backgroundImage: "url('/assets/img/playerPublicProfile/profileHeader.png')",
+              backgroundImage: "url('assets/img/playerPublicProfile/profileHeader.png')",
               backgroundSize: '100% 100%',
             }}
           />
@@ -40,9 +40,9 @@ export default function ProfileCard({ userInfo, isLoading }: ProfileCardProps) {
             <Skeleton width={125} height={125} circle />
           ) : (
             <img
-              src={userInfo.profile_image_url || '/assets/img/default_iv_place_holder.png'}
+              src={userInfo.profile_image_url || 'assets/img/default_iv_place_holder.png'}
               onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/img/default_iv_place_holder.png';
+                (e.target as HTMLImageElement).src = 'assets/img/default_iv_place_holder.png';
               }}
               alt="Profile"
               className="w-[125px] h-[125px] rounded-full border-4 border-white shadow-lg object-cover"

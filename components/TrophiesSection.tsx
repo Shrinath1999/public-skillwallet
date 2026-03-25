@@ -39,7 +39,7 @@ export default function TrophiesSection({
           <div
             className="px-5 py-3 flex items-center h-[50px] bg-cover bg-center border-b"
             style={{
-              backgroundImage: "url('/assets/img/playerPublicProfile/tableHeader.png')",
+              backgroundImage: "url('assets/img/playerPublicProfile/tableHeader.png')",
               backgroundSize: '100% 100%',
             }}
           >
@@ -73,14 +73,14 @@ export default function TrophiesSection({
                         {trophy.trophy_type === 'game_trophy' ? (
                           <>
                             <img
-                              src="/assets/img/ring.png"
+                              src="assets/img/ring.png"
                               alt="Ring"
                               className="w-[110px] h-[110px] rounded-full shadow-lg"
                             />
                             <img
                               src={trophy.logo_url}
                               onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/assets/img/default_iv_place_holder.png';
+                                (e.target as HTMLImageElement).src = 'assets/img/default_iv_place_holder.png';
                               }}
                               alt={trophy.trophies_name}
                               className="absolute top-[23px] left-1/2 transform -translate-x-1/2 w-[63px] h-[64px] rounded-full"
@@ -90,7 +90,7 @@ export default function TrophiesSection({
                           <img
                             src={trophy.logo_url}
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = '/assets/img/default_iv_place_holder.png';
+                              (e.target as HTMLImageElement).src = 'assets/img/default_iv_place_holder.png';
                             }}
                             alt={trophy.trophies_name}
                             className="w-[110px] h-[110px] rounded-full shadow-lg object-cover"

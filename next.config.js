@@ -2,8 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  basePath: '/public-skillwallet',
-  assetPrefix: '/public-skillwallet',
   images: {
     unoptimized: true,
     remotePatterns: [

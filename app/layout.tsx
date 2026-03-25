@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Public SkillWallet - 1Huddle',
-  description: 'View player profiles and achievements on 1Huddle SkillWallet',
-  icons: {
-    icon: '/favicon.ico',
-  },
-};
+export const metadata: Metadata = generateSEOMetadata();
 
 export default function RootLayout({
   children,

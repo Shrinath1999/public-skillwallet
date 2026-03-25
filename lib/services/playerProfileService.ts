@@ -9,6 +9,9 @@ interface PlayerProfile {
   player_id: number;
   milestone: number;
   profile_image_url: string;
+  uuid?: string;
+  created_at?: string;
+  updated_at?: string;
 }
 
 interface GamePerformance {
@@ -150,6 +153,25 @@ class PlayerProfileService {
     } catch (error) {
       console.error('Error fetching trophies:', error);
       throw error;
+    }
+  }
+
+  async getPublicPlayerProfiles(): Promise<ApiResponse<{ profiles: PlayerProfile[] }>> {
+    try {
+      // This would be a new endpoint to get all public profiles for sitemap generation
+      // For now, return empty array to prevent sitemap errors
+      return {
+        success: true,
+        data: { profiles: [] },
+        message_code: 200,
+      };
+    } catch (error) {
+      console.error('Error fetching public profiles:', error);
+      return {
+        success: false,
+        data: { profiles: [] },
+        message_code: 500,
+      };
     }
   }
 }

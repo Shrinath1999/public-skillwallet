@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import Head from 'next/head';
 import Header from '@/components/Header';
@@ -75,8 +75,16 @@ interface Game {
 
 export default function Page() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const { t, i18n } = useTranslation();
   const uuid = searchParams.get('uuid') || process.env.NEXT_PUBLIC_DEFAULT_UUID || 'becafbde-51b1-4f76-98cb-0066c82d2820';
+
+  // Redirect to ISR route if UUID is provided
+  useEffect(() => {
+    if (uuid && searchParams.has('uuid')) {
+      router.replace(`/profile/${uuid}`);
+    }
+  }, [uuid, router, searchParams]);
 
   const [userInfo, setUserInfo] = useState<UserInfo>({
     first_name: '',

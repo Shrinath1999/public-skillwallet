@@ -18,12 +18,12 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
     <>
       <header className="sticky top-0 z-50 w-full h-[50px] bg-cover bg-center flex items-center px-[5%]"
         style={{
-          backgroundImage: "url('/assets/img/playerPublicProfile/headerBg.png')",
+          backgroundImage: "url('assets/img/playerPublicProfile/headerBg.png')",
           backgroundSize: '100% 100%',
         }}>
         <div className="w-full flex flex-row items-center">
           <img
-            src="/assets/img/1Huddle_White_trademark.png"
+            src="assets/img/1Huddle_White_trademark.png"
             alt="1Huddle Logo"
             className="h-[50px] w-auto"
           />
@@ -38,7 +38,7 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
                 className="cursor-pointer hover:opacity-80 transition"
               >
                 <img
-                  src="/assets/img/playerPublicProfile/helpIcon.png"
+                  src="assets/img/playerPublicProfile/helpIcon.png"
                   alt="Help"
                   className="w-[22px] h-[22px]"
                 />
@@ -50,7 +50,7 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
                   className="cursor-pointer hover:opacity-80 transition"
                 >
                   <img
-                    src="/assets/img/playerPublicProfile/helpIcon.png"
+                    src="assets/img/playerPublicProfile/helpIcon.png"
                     alt="Help"
                     className="w-[22px] h-[22px]"
                   />
@@ -60,7 +60,7 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
                     <div className="flex items-center justify-between mb-3 pb-3 border-b border-white/30">
                       <div className="flex items-center gap-2">
                         <img
-                          src="/assets/img/playerPublicProfile/helpIcon.png"
+                          src="assets/img/playerPublicProfile/helpIcon.png"
                           alt="Help"
                           className="w-5 h-5"
                         />
@@ -94,7 +94,7 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
           <div className="flex items-center justify-between p-4 border-b border-white/30">
             <div className="flex items-center gap-3">
               <img
-                src="/assets/img/playerPublicProfile/helpIcon.png"
+                src="assets/img/playerPublicProfile/helpIcon.png"
                 alt="Help"
                 className="w-5 h-5"
               />

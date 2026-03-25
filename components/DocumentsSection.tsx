@@ -39,13 +39,13 @@ export default function DocumentsSection({ documents, isLoading, onDocumentClick
           <div
             className="px-5 py-3 flex items-center h-[50px] bg-cover bg-center border-b"
             style={{
-              backgroundImage: "url('/assets/img/playerPublicProfile/tableHeader.png')",
+              backgroundImage: "url('assets/img/playerPublicProfile/tableHeader.png')",
               backgroundSize: '100% 100%',
             }}
           >
-            <span className="text-white font-bold text-sm">{t('achivements')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('achivements')}</h2>
             <div className="w-px h-5 bg-white/50 mx-5" />
-            <span className="text-white font-bold text-sm">{t('certificateAwards')}</span>
+            <h2 className="text-white font-bold text-sm m-0">{t('certificateAwards')}</h2>
           </div>
         )}
 

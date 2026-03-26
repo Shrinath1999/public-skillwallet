@@ -35,7 +35,7 @@ export default function GamesTable({ games, isLoading, isMobile }: GamesTablePro
   };
 
   return (
-    <div className="w-full mt-5">
+    <div className="w-full">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         {!isLoading && games.length > 0 && (
           <div

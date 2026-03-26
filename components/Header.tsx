@@ -25,7 +25,7 @@ export default function Header({ isMobile, onHelpClick, showHelpPopup }: HeaderP
           <img
             src="assets/img/1Huddle_White_trademark.png"
             alt="1Huddle Logo"
-            className="h-[50px] w-auto"
+            className=" w-[120px]"
           />
           <div className="w-px h-5 bg-white/50 mx-5" />
           <span className="text-white font-bold text-sm">

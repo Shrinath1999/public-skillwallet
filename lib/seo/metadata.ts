@@ -55,7 +55,7 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
   const title = isUserProfile 
     ? `${userName} - SkillWallet Profile | ${seoConfig.companyName}`
     : `Public SkillWallet | ${seoConfig.companyName}`;
-  
+
   const description = isUserProfile
     ? `View ${userName}'s professional profile on 1Huddle SkillWallet. Discover their achievements, ${userInfo.milestone_achived} milestones, game statistics, and professional development progress. Active since ${userInfo.active_since}.`
     : seoConfig.defaultDescription;
@@ -157,7 +157,7 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
       'application-name': `${seoConfig.companyName} SkillWallet`,
     },
   };
-
+  
   return metadata;
 }
 

@@ -102,7 +102,7 @@ class PlayerProfileService {
   }
 
   async getPlayerPublicProfile(uuid: string): Promise<ApiResponse<PlayerProfile>> {
-    try {
+    try {      
       // Gateway endpoint: 3p0cq3006j.execute-api.us-west-2.amazonaws.com/why/user/{uuid}
       const response = await this.gatewayGet(`https://3p0cq3006j.execute-api.us-west-2.amazonaws.com/why/user/${uuid}`);
       return response.data;

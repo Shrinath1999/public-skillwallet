@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Remove output: 'export' to enable ISR and API routes
-  basePath: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
+  // Remove basePath and assetPrefix for EC2 deployment
+  // basePath: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/public-skillwallet' : '',
   images: {
     unoptimized: true,
     remotePatterns: [

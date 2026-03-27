@@ -20,19 +20,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
-      alternates: {
-        languages: {
-          en: baseUrl,
-          'en-US': baseUrl,
-          es: `${baseUrl}?lang=es`,
-          fr: `${baseUrl}?lang=fr`,
-          de: `${baseUrl}?lang=de`,
-          pt: `${baseUrl}?lang=pt`,
-          it: `${baseUrl}?lang=it`,
-          ja: `${baseUrl}?lang=ja`,
-          zh: `${baseUrl}?lang=zh`,
-        },
-      },
     },
   ];
 
@@ -45,19 +32,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(profile.updated_at || profile.created_at),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
-        alternates: {
-          languages: {
-            en: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}`,
-            'en-US': `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}`,
-            es: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=es`,
-            fr: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=fr`,
-            de: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=de`,
-            pt: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=pt`,
-            it: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=it`,
-            ja: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=ja`,
-            zh: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=zh`,
-          },
-        },
       }));
 
       return [...staticPages, ...profilePages];

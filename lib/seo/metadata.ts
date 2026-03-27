@@ -22,7 +22,7 @@ interface SEOConfig {
 
 const seoConfig: SEOConfig = {
   companyName: '1Huddle',
-  websiteUrl: 'https://skillwallet.1huddle.com',
+  websiteUrl: 'https://publicskillwallet.1huddle.co',
   defaultDescription: 'Discover employee skills, achievements, and training progress on 1Huddle SkillWallet. View comprehensive player profiles, game statistics, trophies, and professional development milestones.',
   keywords: [
     'skillwallet',

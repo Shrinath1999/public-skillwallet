@@ -12,7 +12,7 @@ interface SitemapEntry {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://skillwallet.1huddle.com';
+  const baseUrl = 'https://publicskillwallet.1huddle.co';
   
   const staticPages: SitemapEntry[] = [
     {

@@ -41,7 +41,7 @@ export default function GamesTable({ games, isLoading, isMobile }: GamesTablePro
           <div
             className="px-5 py-3 flex items-center h-[50px] bg-cover bg-center border-b"
             style={{
-              backgroundImage: "url('assets/img/playerPublicProfile/tableHeader.png')",
+              backgroundImage: "url('/assets/img/playerPublicProfile/tableHeader.png')",
               backgroundSize: '100% 100%',
             }}
           >
@@ -94,7 +94,7 @@ export default function GamesTable({ games, isLoading, isMobile }: GamesTablePro
                       <img
                         src={game.game_image_url}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'assets/img/default_iv_place_holder.png';
+                          (e.target as HTMLImageElement).src = '/assets/img/default_iv_place_holder.png';
                         }}
                         alt={game.game_name}
                         className="w-[27px] h-[27px] rounded-full object-cover"

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/Header';
 import ProfileCard from '@/components/ProfileCard';
@@ -97,60 +97,52 @@ export default function ProfilePageClient({ initialData, uuid }: ProfilePageProp
     return () => window.removeEventListener('resize', calculateBreakpoint);
   }, []);
 
-  useEffect(() => {
-    if (data.gameplayDetails && data.userInfo) {
-      const totalTimePlayed = data.gameplayDetails.total_time 
-        ? getTime(data.gameplayDetails.total_time, t) 
-        : '--';
+  const scoreDetails = useMemo(() => {
+    if (!data.gameplayDetails || !data.userInfo) return [];
 
-      const scoreDetails = [
-        {
-          points: data.gameplayDetails.total_points,
-          title: t('totalPointsPlayerProfile'),
-          imgName: 'totalPoints',
-          showInTimeFormat: false,
-        },
-        {
-          points: data.gameplayDetails.total_games,
-          title: t('totalGamesPlayerProfile'),
-          imgName: 'totalGames',
-          showInTimeFormat: false,
-        },
-        {
-          points: data.gameplayDetails.total_trophies,
-          title: t('trophiesEarned'),
-          imgName: 'trophy',
-          showInTimeFormat: false,
-        },
-        {
-          points: data.gameplayDetails.perfect_games,
-          title: t('perfectGamesLabel'),
-          imgName: 'perfectgames',
-          showInTimeFormat: false,
-        },
-        {
-          points: totalTimePlayed,
-          title: t('timePlayed'),
-          imgName: 'time',
-          showInTimeFormat: true,
-        },
-        {
-          points: data.gameplayDetails.max_weekly_streak,
-          title: t('weeklyStreaks'),
-          imgName: 'weekly',
-          showInTimeFormat: false,
-        },
-      ];
+    const totalTimePlayed = data.gameplayDetails.total_time 
+      ? getTime(data.gameplayDetails.total_time, t) 
+      : '--';
 
-      setData(prev => ({
-        ...prev,
-        userInfo: {
-          ...prev.userInfo,
-          scoreDetails,
-        },
-      }));
-    }
-  }, [data.gameplayDetails, data.userInfo, t]);
+    return [
+      {
+        points: data.gameplayDetails.total_points,
+        title: t('totalPointsPlayerProfile'),
+        imgName: 'totalPoints',
+        showInTimeFormat: false,
+      },
+      {
+        points: data.gameplayDetails.total_games,
+        title: t('totalGamesPlayerProfile'),
+        imgName: 'totalGames',
+        showInTimeFormat: false,
+      },
+      {
+        points: data.gameplayDetails.total_trophies,
+        title: t('trophiesEarned'),
+        imgName: 'trophy',
+        showInTimeFormat: false,
+      },
+      {
+        points: data.gameplayDetails.perfect_games,
+        title: t('perfectGamesLabel'),
+        imgName: 'perfectgames',
+        showInTimeFormat: false,
+      },
+      {
+        points: totalTimePlayed,
+        title: t('timePlayed'),
+        imgName: 'time',
+        showInTimeFormat: true,
+      },
+      {
+        points: data.gameplayDetails.max_weekly_streak,
+        title: t('weeklyStreaks'),
+        imgName: 'weekly',
+        showInTimeFormat: false,
+      },
+    ];
+  }, [data.gameplayDetails, t]);
 
   const calculateBreakpoint = () => {
     const width = window.innerWidth;
@@ -217,7 +209,7 @@ export default function ProfilePageClient({ initialData, uuid }: ProfilePageProp
           <div className="flex flex-col md:flex-row gap-5 mb-8">
             <ProfileCard userInfo={data.userInfo} isLoading={isProfileLoading} />
             <StatsGrid
-              scoreDetails={data.userInfo.scoreDetails || []}
+              scoreDetails={scoreDetails}
               isLoading={isGameplayLoading}
               breakpoint={breakpoint}
             />

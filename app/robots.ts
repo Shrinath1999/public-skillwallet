@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://skillwallet.1huddle.com';
+  const baseUrl = 'https://publicskillwallet.1huddle.co';
 
   return {
     rules: [

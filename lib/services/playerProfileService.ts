@@ -10,6 +10,7 @@ interface PlayerProfile {
   milestone: number;
   profile_image_url: string;
   uuid?: string;
+  username?: string;
   created_at?: string;
   updated_at?: string;
 }
@@ -158,11 +159,26 @@ class PlayerProfileService {
 
   async getPublicPlayerProfiles(): Promise<ApiResponse<{ profiles: PlayerProfile[] }>> {
     try {
-      // This would be a new endpoint to get all public profiles for sitemap generation
-      // For now, return empty array to prevent sitemap errors
+      // For testing, return mock data with the current user
+      // In production, this would call an actual API endpoint
+      const mockProfiles: PlayerProfile[] = [
+        {
+          first_name: 'Shri',
+          last_name: 'demo.qa',
+          player_id: 1,
+          milestone: 1,
+          profile_image_url: '',
+          uuid: 'becafbde-51b1-4f76-98cb-0066c82d2820',
+          username: 'shri-demoqa',
+          active_since: '2025-05-13T09:18:58Z',
+          created_at: '2025-05-13T09:18:58Z',
+          updated_at: '2025-05-13T09:18:58Z',
+        }
+      ];
+
       return {
         success: true,
-        data: { profiles: [] },
+        data: { profiles: mockProfiles },
         message_code: 200,
       };
     } catch (error) {
@@ -170,6 +186,49 @@ class PlayerProfileService {
       return {
         success: false,
         data: { profiles: [] },
+        message_code: 500,
+      };
+    }
+  }
+
+  async findUserByUsername(username: string): Promise<ApiResponse<PlayerProfile>> {
+    try {
+      // First try to get all profiles and find by username
+      const profilesResponse = await this.getPublicPlayerProfiles();
+      
+      if (profilesResponse.success && profilesResponse.data?.profiles) {
+        const profile = profilesResponse.data.profiles.find(p => 
+          p.username === username || 
+          `${p.first_name.toLowerCase()}-${p.last_name.toLowerCase()}` === username
+        );
+        
+        if (profile) {
+          return {
+            success: true,
+            data: profile,
+            message_code: 200,
+          };
+        }
+      }
+      
+      // If not found, try to parse as first-name-last-name format
+      const nameParts = username.split('-');
+      if (nameParts.length === 2) {
+        const [firstName, lastName] = nameParts;
+        // You could implement an API endpoint here to search by name
+        // For now, return not found
+      }
+      
+      return {
+        success: false,
+        data: null as any,
+        message_code: 404,
+      };
+    } catch (error) {
+      console.error('Error finding user by username:', error);
+      return {
+        success: false,
+        data: null as any,
         message_code: 500,
       };
     }

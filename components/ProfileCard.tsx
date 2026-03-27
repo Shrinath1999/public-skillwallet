@@ -54,9 +54,9 @@ export default function ProfileCard({ userInfo, isLoading }: ProfileCardProps) {
           {isLoading ? (
             <Skeleton width={200} height={30} className="mx-auto" />
           ) : (
-            <span className="font-bold text-sm text-gray-900">
+            <h1 className="font-bold text-sm text-gray-900">
               {userInfo.first_name?.toUpperCase()} {userInfo.last_name?.toUpperCase()}
-            </span>
+            </h1>
           )}
         </div>
 
@@ -67,16 +67,16 @@ export default function ProfileCard({ userInfo, isLoading }: ProfileCardProps) {
         {!isLoading && (
           <div className="px-10 pb-8">
             <div className="flex justify-between items-center mb-5">
-              <span className="text-xs text-gray-500">{t('active_sincePlayerProfile')}</span>
-              <span className="text-sm font-medium text-gray-800">{userInfo.active_since}</span>
+              <h2 className="text-xs text-gray-500">{t('active_sincePlayerProfile')}</h2>
+              <h2 className="text-sm font-medium text-gray-800">{userInfo.active_since}</h2>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-xs text-gray-500">{t('milestones_achivedPlayerProfile')}</span>
-              <span className="text-sm font-medium text-gray-800">
+              <h2 className="text-xs text-gray-500">{t('milestones_achivedPlayerProfile')}</h2>
+              <h2 className="text-sm font-medium text-gray-800">
                 {userInfo.milestone_achived > 0
                   ? `${userInfo.milestone_achived} ${t('gamesPlayerProfile')}`
                   : '--'}
-              </span>
+              </h2>
             </div>
           </div>
         )}

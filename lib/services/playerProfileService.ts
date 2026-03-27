@@ -163,13 +163,13 @@ class PlayerProfileService {
       // In production, this would call an actual API endpoint
       const mockProfiles: PlayerProfile[] = [
         {
-          first_name: 'Shri',
-          last_name: 'demo.qa',
+          first_name: 'Shrinath',
+          last_name: 'Malavekar',
           player_id: 1,
           milestone: 1,
           profile_image_url: '',
           uuid: 'becafbde-51b1-4f76-98cb-0066c82d2820',
-          username: 'shri-demoqa',
+          username: 'shrinath-malavekar',
           active_since: '2025-05-13T09:18:58Z',
           created_at: '2025-05-13T09:18:58Z',
           updated_at: '2025-05-13T09:18:58Z',

@@ -16,6 +16,7 @@ export default function robots(): MetadataRoute.Robots {
           '/favicon.ico',
           '/manifest.json',
         ],
+        crawlDelay: 1,
       },
       {
         userAgent: 'Googlebot',
@@ -27,6 +28,16 @@ export default function robots(): MetadataRoute.Robots {
           '/static/',
         ],
         crawlDelay: 1,
+      },
+      {
+        userAgent: 'Googlebot-Image',
+        allow: '/assets/img/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/static/',
+        ],
       },
       {
         userAgent: 'Bingbot',
@@ -62,7 +73,10 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'facebookexternalhit',
-        allow: '/',
+        allow: [
+          '/',
+          '/profile/',
+        ],
         disallow: [
           '/api/',
           '/admin/',
@@ -72,7 +86,10 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'TwitterBot',
-        allow: '/',
+        allow: [
+          '/',
+          '/profile/',
+        ],
         disallow: [
           '/api/',
           '/admin/',
@@ -82,7 +99,10 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'LinkedInBot',
-        allow: '/',
+        allow: [
+          '/',
+          '/profile/',
+        ],
         disallow: [
           '/api/',
           '/admin/',

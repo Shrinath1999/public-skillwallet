@@ -41,21 +41,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     
     if (response.success && response.data?.profiles) {
       const profilePages: SitemapEntry[] = response.data.profiles.map((profile: any) => ({
-        url: `${baseUrl}?uuid=${profile.uuid}`,
+        url: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}`,
         lastModified: new Date(profile.updated_at || profile.created_at),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
         alternates: {
           languages: {
-            en: `${baseUrl}?uuid=${profile.uuid}`,
-            'en-US': `${baseUrl}?uuid=${profile.uuid}`,
-            es: `${baseUrl}?uuid=${profile.uuid}&lang=es`,
-            fr: `${baseUrl}?uuid=${profile.uuid}&lang=fr`,
-            de: `${baseUrl}?uuid=${profile.uuid}&lang=de`,
-            pt: `${baseUrl}?uuid=${profile.uuid}&lang=pt`,
-            it: `${baseUrl}?uuid=${profile.uuid}&lang=it`,
-            ja: `${baseUrl}?uuid=${profile.uuid}&lang=ja`,
-            zh: `${baseUrl}?uuid=${profile.uuid}&lang=zh`,
+            en: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}`,
+            'en-US': `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}`,
+            es: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=es`,
+            fr: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=fr`,
+            de: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=de`,
+            pt: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=pt`,
+            it: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=it`,
+            ja: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=ja`,
+            zh: `${baseUrl}/profile/${profile.username || `${profile.first_name.toLowerCase()}-${profile.last_name.toLowerCase()}`}?lang=zh`,
           },
         },
       }));

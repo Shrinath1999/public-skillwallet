@@ -71,6 +71,37 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
       ]
     : seoConfig.keywords;
 
+  // Structured data for Google
+  const structuredData = isUserProfile ? {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": userName,
+    "description": description,
+    "url": canonicalUrl,
+    "worksFor": {
+      "@type": "Organization",
+      "name": seoConfig.companyName,
+      "url": "https://1huddle.co"
+    },
+    "knowsAbout": [
+      "employee training",
+      "professional development",
+      "gamification",
+      "skill assessment"
+    ]
+  } : {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": `${seoConfig.companyName} SkillWallet`,
+    "description": description,
+    "url": seoConfig.websiteUrl,
+    "publisher": {
+      "@type": "Organization",
+      "name": seoConfig.companyName,
+      "url": "https://1huddle.co"
+    }
+  };
+
   const metadata: Metadata = {
     title,
     description,
@@ -78,56 +109,6 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
     authors: [{ name: seoConfig.author }],
     creator: seoConfig.author,
     publisher: seoConfig.companyName,
-    
-    openGraph: {
-      type: 'profile',
-      siteName: `${seoConfig.companyName} SkillWallet`,
-      title,
-      description,
-      url: canonicalUrl,
-      images: userInfo?.profile_image_url ? [
-        {
-          url: userInfo.profile_image_url,
-          width: 400,
-          height: 400,
-          alt: `${userName}'s Profile Picture - ${seoConfig.companyName} SkillWallet`,
-        }
-      ] : [
-        {
-          url: `${seoConfig.websiteUrl}/assets/img/og-default-image.jpg`,
-          width: 1200,
-          height: 630,
-          alt: `${seoConfig.companyName} SkillWallet - Professional Development Platform`,
-        }
-      ],
-      locale: 'en_US',
-    },
-    
-    twitter: {
-      card: 'summary_large_image',
-      site: seoConfig.twitterHandle,
-      creator: seoConfig.twitterHandle,
-      title,
-      description,
-      images: userInfo?.profile_image_url ? [userInfo.profile_image_url] : [`${seoConfig.websiteUrl}/assets/img/twitter-default-image.jpg`],
-    },
-    
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    
-    verification: {
-      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
-    },
     
     alternates: {
       canonical: canonicalUrl,
@@ -144,11 +125,49 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
       },
     },
     
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: `${seoConfig.companyName} SkillWallet`,
+      locale: 'en_US',
+      type: isUserProfile ? 'profile' : 'website',
+      images: [
+        {
+          url: `${seoConfig.websiteUrl}/assets/img/1huddle_logo.png`,
+          width: 1200,
+          height: 630,
+          alt: `${seoConfig.companyName} SkillWallet`,
+        },
+      ],
+    },
+    
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      site: seoConfig.twitterHandle,
+      creator: seoConfig.twitterHandle,
+      images: [`${seoConfig.websiteUrl}/assets/img/1huddle_logo.png`],
+    },
+    
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    
     category: 'Education',
     classification: 'Professional Development Platform',
-    referrer: 'origin-when-cross-origin',
     
     other: {
+      'application/ld+json': JSON.stringify(structuredData),
       'theme-color': '#2563eb',
       'msapplication-TileColor': '#2563eb',
       'apple-mobile-web-app-capable': 'yes',

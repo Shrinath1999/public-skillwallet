@@ -40,52 +40,52 @@ const profiles: PlayerProfile[] = [
     profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
     uuid: 'e7bdbbe1-ecc9-48e7-9abe-9d0ea7bac258',
     username: 'shante-kuvalis'
-  },
-  {
-    first_name: 'Jamie',
-    last_name: 'Cormier',
-    player_id: 813,
-    milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: 'b756289c-3b5d-436c-817c-91c4a482609e',
-    username: 'jamie-cormier'
-  },
-  {
-    first_name: 'Jospeh',
-    last_name: 'Ziemann',
-    player_id: 814,
-    milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: 'd8ae0fb4-fee9-4408-8361-2197ea257c3d',
-    username: 'jospeh-ziemann'
-  },
-  {
-    first_name: 'Ingeborg',
-    last_name: 'Terry',
-    player_id: 815,
-    milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: 'e0e6b7ed-23b4-49eb-930b-6230ca8bd55a',
-    username: 'ingeborg-terry'
-  },
-  {
-    first_name: 'Vesta',
-    last_name: 'Spinka',
-    player_id: 816,
-    milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: '65575123-7832-4e68-96e3-515e871d4088',
-    username: 'vesta-spinka'
-  },
-  {
-    first_name: 'Lester',
-    last_name: 'Abernathy',
-    player_id: 817,
-    milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: '1de899fc-9208-4adf-8ce6-3d53b17fe619',
-    username: 'lester-abernathy'
   }
+  // {
+  //   first_name: 'Jamie',
+  //   last_name: 'Cormier',
+  //   player_id: 813,
+  //   milestone: -1,
+  //   profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
+  //   uuid: 'b756289c-3b5d-436c-817c-91c4a482609e',
+  //   username: 'jamie-cormier'
+  // },
+  // {
+  //   first_name: 'Jospeh',
+  //   last_name: 'Ziemann',
+  //   player_id: 814,
+  //   milestone: -1,
+  //   profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
+  //   uuid: 'd8ae0fb4-fee9-4408-8361-2197ea257c3d',
+  //   username: 'jospeh-ziemann'
+  // },
+  // {
+  //   first_name: 'Ingeborg',
+  //   last_name: 'Terry',
+  //   player_id: 815,
+  //   milestone: -1,
+  //   profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
+  //   uuid: 'e0e6b7ed-23b4-49eb-930b-6230ca8bd55a',
+  //   username: 'ingeborg-terry'
+  // },
+  // {
+  //   first_name: 'Vesta',
+  //   last_name: 'Spinka',
+  //   player_id: 816,
+  //   milestone: -1,
+  //   profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
+  //   uuid: '65575123-7832-4e68-96e3-515e871d4088',
+  //   username: 'vesta-spinka'
+  // },
+  // {
+  //   first_name: 'Lester',
+  //   last_name: 'Abernathy',
+  //   player_id: 817,
+  //   milestone: -1,
+  //   profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
+  //   uuid: '1de899fc-9208-4adf-8ce6-3d53b17fe619',
+  //   username: 'lester-abernathy'
+  // }
 ];
 
 

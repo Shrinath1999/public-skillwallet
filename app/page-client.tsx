@@ -154,7 +154,7 @@ export default function PageClient() {
           first_name: data.first_name,
           last_name: data.last_name,
           player_id: data.player_id,
-          active_since: new Date(data.active_since).toLocaleDateString('en-US', {
+          active_since: new Date().toLocaleDateString('en-US', {
             month: 'short',
             year: 'numeric',
           }),

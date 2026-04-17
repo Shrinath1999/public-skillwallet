@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
     const data = {
       userInfo: {
         ...profileResponse.data,
-        active_since: new Date(profileResponse.data.active_since).toLocaleDateString('en-US', {
+        active_since: new Date().toLocaleDateString('en-US', {
           month: 'short',
           year: 'numeric',
         }),

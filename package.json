@@ -4,9 +4,10 @@
   "description": "Public SkillWallet player profile viewer built with Next.js and React",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate-profiles && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-profiles": "tsx scripts/generateProfiles.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",

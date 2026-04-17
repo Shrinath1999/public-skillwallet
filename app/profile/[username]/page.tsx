@@ -74,6 +74,10 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
       const userInfo = {
         ...response.data,
         milestone_achived: response.data.milestone,
+        active_since: new Date().toLocaleDateString('en-US', {
+          month: 'short',
+          year: 'numeric',
+        }),
       };
       return generateSEOMetadata(userInfo, uuid);
     }
@@ -115,7 +119,7 @@ async function getProfileData(identifier: string) {
       userInfo: {
         ...profileResponse.data,
         milestone_achived: profileResponse.data.milestone,
-        active_since: new Date(profileResponse.data.active_since).toLocaleDateString('en-US', {
+        active_since: new Date().toLocaleDateString('en-US', {
           month: 'short',
           year: 'numeric',
         }),

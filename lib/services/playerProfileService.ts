@@ -5,14 +5,11 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://qa-api.1hu
 interface PlayerProfile {
   first_name: string;
   last_name: string;
-  active_since: string;
   player_id: number;
   milestone: number;
   profile_image_url: string;
   uuid?: string;
   username?: string;
-  created_at?: string;
-  updated_at?: string;
 }
 
 interface GamePerformance {
@@ -159,30 +156,17 @@ class PlayerProfileService {
 
   async getPublicPlayerProfiles(): Promise<ApiResponse<{ profiles: PlayerProfile[] }>> {
     try {
-      // For testing, return mock data with the current user
-      // In production, this would call an actual API endpoint
-      const mockProfiles: PlayerProfile[] = [
-        {
-          first_name: 'Shrinath',
-          last_name: 'Malavekar',
-          player_id: 1,
-          milestone: 1,
-          profile_image_url: '',
-          uuid: 'becafbde-51b1-4f76-98cb-0066c82d2820',
-          username: 'shrinath-malavekar',
-          active_since: '2025-05-13T09:18:58Z',
-          created_at: '2025-05-13T09:18:58Z',
-          updated_at: '2025-05-13T09:18:58Z',
-        }
-      ];
-
+      // Read profiles from the generated profiles.json file
+      const profilesData = require('../../data/profiles.json');
+      
       return {
         success: true,
-        data: { profiles: mockProfiles },
+        data: { profiles: profilesData },
         message_code: 200,
       };
     } catch (error) {
       console.error('Error fetching public profiles:', error);
+      // Fallback to empty array if file doesn't exist
       return {
         success: false,
         data: { profiles: [] },

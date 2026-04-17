@@ -6,6 +6,10 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        userAgent: 'SiteAuditBot',
+        disallow: '',
+      },
+      {
         userAgent: '*',
         allow: '/',
         crawlDelay: 1,

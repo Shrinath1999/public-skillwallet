@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'SkillWallet | 1Huddle',
   description: 'Discover employee skills and achievements on 1Huddle SkillWallet.',
+  verification: {
+    google: 'X5ZizpWrorJyM7NLaIrpOtBhbTiZ9DGbTiT8Q40Lk9o',
+  },
 };
 
 export default function RootLayout({

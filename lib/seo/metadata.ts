@@ -109,6 +109,9 @@ export function generateMetadata(userInfo?: UserInfo, uuid?: string): Metadata {
     authors: [{ name: seoConfig.author }],
     creator: seoConfig.author,
     publisher: seoConfig.companyName,
+    verification: {
+      google: 'X5ZizpWrorJyM7NLaIrpOtBhbTiZ9DGbTiT8Q40Lk9o',
+    },
     
     alternates: {
       canonical: canonicalUrl,

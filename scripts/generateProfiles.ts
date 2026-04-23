@@ -10,37 +10,34 @@ interface PlayerProfile {
   profile_image_url: string;
   uuid?: string;
   username?: string;
+  created_on?: string;
+  updated_on?: string;
 }
 
 // Multiple profiles to generate at build time (using real data from CSV)
 const profiles: PlayerProfile[] = [
   {
-    first_name: 'Shrinath',
-    last_name: 'Malavekar',
+    first_name: "Shrinath",
+    last_name: "Malavekar",
     player_id: 1,
     milestone: 1,
-    profile_image_url: '',
-    uuid: 'becafbde-51b1-4f76-98cb-0066c82d2820',
-    username: 'shrinath-malavekar'
+    profile_image_url: "",
+    created_on: "2026-04-20T08:36:03.520Z",
+    updated_on: "2026-04-20T08:36:03.520Z",
+    uuid: "becafbde-51b1-4f76-98cb-0066c82d2820",
+    username: "shrinath-malavekar"
   },
   {
-    first_name: 'Arvind',
-    last_name: 'Shelke',
-    player_id: 22,
-    milestone: 1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: '6e3f5ecf-3614-4513-a9be-45bb5ab1f87e',
-    username: 'arvind-shelke'
-  },
-  {
-    first_name: 'Shante',
-    last_name: 'Kuvalis',
+    first_name: "Shante",
+    last_name: "Kuvalis",
     player_id: 812,
     milestone: -1,
-    profile_image_url: 'https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png',
-    uuid: 'e7bdbbe1-ecc9-48e7-9abe-9d0ea7bac258',
-    username: 'shante-kuvalis'
-  }
+    profile_image_url: "https://1h-qa-static-assets.s3.us-west-2.amazonaws.com/public_html/static/adminpanel/assets/img/admin/profilePic_default.png",
+    created_on: "2026-04-20T08:36:03.520Z",
+    updated_on: "2026-04-20T08:36:03.520Z",
+    uuid: "e7bdbbe1-ecc9-48e7-9abe-9d0ea7bac258",
+    username: "shante-kuvalis"
+  },
   // {
   //   first_name: 'Jamie',
   //   last_name: 'Cormier',
